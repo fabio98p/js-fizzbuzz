@@ -1,22 +1,32 @@
 console.log("funzia");
 
-var maxNum = parseInt(prompt("scrivi il numero massimo", "100"));
-var list = [];
-
-for (let i = 1; i < maxNum+1; i++) {
+function fizzBuzz() {
 	
-	if(!(i%3) && !(i%5)){
-		list.push("fizzbuzz");
+	var maxNum = "";
+	do {
+		maxNum = parseInt(prompt("scrivi il numero massimo", "100"));
+	} while (isNaN(maxNum));
+	
+	var list = [];
+	
+	for (let i = 1; i < maxNum+1; i++) {
+		
+		if(!(i%3) && !(i%5)){
+			list.push("fizzbuzz");
+		}
+		else if(!(i%3)){
+			list.push("fizz");
+		}
+		else if(!(i%5)){
+			list.push("buzz");
+		}
+		else{
+			list.push(i);
+		}
 	}
-	else if(!(i%3)){
-		list.push("fizz");
+	document.getElementsByClassName("list")[0].innerHTML = "";
+	for (let i = 0; i < list.length; i++) {
+		document.getElementsByClassName("list")[0].innerHTML += "<li>" + list[i] + "</li>";
 	}
-	else if(!(i%5)){
-		list.push("buzz");
-	}
-	else{
-		list.push(i)
-	}
+	console.log(list);
 }
-document.getElementsByClassName("list")[0].innerHTML = list
-console.log(list);
